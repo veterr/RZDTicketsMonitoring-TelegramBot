@@ -14,6 +14,7 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
+@Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Car {
     @JsonProperty(value = "type")

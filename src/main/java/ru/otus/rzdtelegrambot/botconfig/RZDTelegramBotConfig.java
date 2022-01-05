@@ -21,6 +21,7 @@ public class RZDTelegramBotConfig {
     String webHookPath;
     String userName;
     String botToken;
+    String paymentToken;
 
     DefaultBotOptions.ProxyType proxyType;
     String proxyHost;

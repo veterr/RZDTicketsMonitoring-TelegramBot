@@ -2,9 +2,11 @@ package ru.otus.rzdtelegrambot.botapi;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import ru.otus.rzdtelegrambot.botapi.handlers.callbackquery.CallbackQueryFacade;
 import ru.otus.rzdtelegrambot.cache.UserDataCache;
 
@@ -37,8 +39,8 @@ public class TelegramFacade {
 
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
-            log.info("New message from User:{}, chatId: {},  with text: {}",
-                    message.getFrom().getUserName(), message.getChatId(), message.getText());
+            log.info("New message from User:{}, UserId:{}, chatId: {},  with text: {}",
+                    message.getFrom().getUserName(), message.getFrom().getId(), message.getChatId(), message.getText());
             replyMessage = handleInputMessage(message);
         }
 

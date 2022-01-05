@@ -49,6 +49,7 @@ public class AppConfig {
         rzdTelegramBot.setBotUsername(botConfig.getUserName());
         rzdTelegramBot.setBotToken(botConfig.getBotToken());
         rzdTelegramBot.setBotPath(botConfig.getWebHookPath());
+        rzdTelegramBot.setPaymentToken(botConfig.getPaymentToken());
 
         return rzdTelegramBot;
     }

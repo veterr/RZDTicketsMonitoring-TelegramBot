@@ -15,8 +15,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import ru.otus.rzdtelegrambot.botapi.RZDTelegramBot;
+import ru.otus.rzdtelegrambot.model.Car;
 import ru.otus.rzdtelegrambot.model.Train;
 
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -55,8 +57,17 @@ public class TrainTicketsGetInfoService {
     }
 
     public List<Train> getTrainTicketsList(long chatId, int stationDepartCode, int stationArrivalCode, Date dateDepart) {
-        List<Train> trainList;
+        List<Train> trainList = new ArrayList<>();
         String dateDepartStr = dateFormatter.format(dateDepart);
+        // TODO STUB
+        if (true) {
+            int trainNums = new BigDecimal(Math.random() * 4).intValue();
+            for (int i = 0; i < trainNums; i++) {
+                trainList.add(createTrain(stationDepartCode, stationArrivalCode, dateDepartStr, i));
+            }
+            return trainList;
+        }
+
         Map<String, String> urlParams = new HashMap<>();
         urlParams.put(URI_PARAM_STATION_DEPART_CODE, String.valueOf(stationDepartCode));
         urlParams.put(URI_PARAM_STATION_ARRIVAL_CODE, String.valueOf(stationArrivalCode));
@@ -81,6 +92,29 @@ public class TrainTicketsGetInfoService {
         trainList = parseResponseBody(trainInfoResponseBody);
 
         return trainList;
+    }
+
+    private Train createTrain(int stationDepartCode, int stationArrivalCode, String dateDepartStr, int i) {
+        String[] brands = {"Ласточка", "Чайка"};
+        String[] stationDepart = {"Москва курск", "Москва Савел", "Каланч", "Ржевск"};
+        String[] stationArrival = {"Орехово", "Подольск", "Дубна", "Чехов"};
+        List<Car> cars = createCars(i);
+        return Train.builder().brand(brands[i % 2]).dateArrival(dateDepartStr)
+                .number(i + "").stationArrival(stationArrival[i]).stationDepart(stationDepart[i])
+                .timeDepart(dateDepartStr).timeInWay(i % 2 == 0 ? "30m" : "50m").availableCars(cars).build();
+    }
+
+    private List<Car> createCars(int i) {
+        List<Car> res = new ArrayList<>();
+        for (int j=0; j<i; j++) {
+            res.add(createCar(j));
+        }
+        return res;
+    }
+
+    private Car createCar(int j) {
+        return Car.builder().carType(j > 1 ? "Люкс" : "Обычный")
+                .freeSeats(j > 1 ? 10 : 15).minimalPrice(108).build();
     }
 
 

@@ -1,0 +1,40 @@
+{
+  "chat_id": 105759225,
+  "title": "Guruji Lila",
+  "description": "Buy yourself some devine love!",
+  "payload": "lila:5hjjk78kll694fg",
+  "provider_token": "284685063:TEST:ZmFmYWE1NzIyZmU1",
+  "start_parameter": "startParam",
+  "currency": "RUB",
+  "prices": [
+    {
+      "label": "Сам билет",
+      "amount": 100
+    },
+    {
+      "label": "Секс с проводницей",
+      "amount": 50
+    }
+  ],
+  "photo_url": "https://u.livelib.ru/reader/IrinaKondratovich/o/otl4d1gl/o-o.jpeg",
+  "photo_width": 300,
+  "photo_height": 300,
+  "need_name": true,
+  "need_email": true,
+  "reply_markup": {
+    "inline_keyboard": [
+      [
+        {
+          "text": "Будем куплять!",
+          "pay": true
+        }
+      ],
+      [
+        {
+          "text": "Покупать не будем!"
+        }
+      ]
+    ]
+  },
+  "method": "sendinvoice"
+}

@@ -1,0 +1,9 @@
+POST /bot2117186875:AAFjMDPd-HWKa6_Hf_d7HcSL_2YwlO9F6yU/sendinvoice
+HTTP/1.1
+[charset: UTF-8, Content-Length: 645, Content-Type: application/json; charset=UTF-8,
+Host: api.telegram.org, Connection: Keep-Alive, User-Agent: Apache-HttpClient/4.5.10
+(Java/14.0.2), Accept-Encoding: gzip,deflate]
+
+{"ok":false,"error_code":400,"description":"Bad Request: can't parse inline keyboard button: Text buttons are unallowed in the inline keyboard"}
+
+{"ok":false,"error_code":400,"description":"Bad Request: CURRENCY_TOTAL_AMOUNT_INVALID"}

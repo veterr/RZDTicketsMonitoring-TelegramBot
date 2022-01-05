@@ -37,17 +37,19 @@ public class StationCodeService {
     }
 
     public int getStationCode(String stationName) {
-        String stationNameParam = stationName.toUpperCase();
+        // TODO STUB
+//        String stationNameParam = stationName.toUpperCase();
+//
+//        Optional<Integer> stationCodeOptional = stationsCache.getStationCode(stationNameParam);
+//        if (stationCodeOptional.isPresent()) return stationCodeOptional.get();
+//
+//        if (processStationCodeRequest(stationNameParam).isEmpty()) {
+//            return -1;
+//        }
+//
+//        return stationsCache.getStationCode(stationNameParam).orElse(-1);
 
-        Optional<Integer> stationCodeOptional = stationsCache.getStationCode(stationNameParam);
-        if (stationCodeOptional.isPresent()) return stationCodeOptional.get();
-
-        if (processStationCodeRequest(stationNameParam).isEmpty()) {
-            return -1;
-        }
-
-        return stationsCache.getStationCode(stationNameParam).orElse(-1);
-
+        return stationName.toCharArray()[0];
     }
 
     private Optional<TrainStation[]> processStationCodeRequest(String stationNamePart) {
