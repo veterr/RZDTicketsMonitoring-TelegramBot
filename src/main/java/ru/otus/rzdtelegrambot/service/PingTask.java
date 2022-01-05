@@ -31,7 +31,7 @@ public class PingTask {
             URL url = new URL(getUrl());
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.connect();
-            log.info("Ping {}, OK: response code {}", url.getHost(), connection.getResponseCode());
+            log.info("Ping {}, OK: response code {} ", url.getHost(), connection.getResponseCode());
             connection.disconnect();
         } catch (IOException e) {
             log.error("Ping FAILED");
